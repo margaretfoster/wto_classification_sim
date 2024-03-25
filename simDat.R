@@ -22,13 +22,6 @@ packs <- c('tidyr',
 groundhog.library(packs, 
                   groundhog_day, tolerate.R.version='4.3.3')
 
-##engines <-  c('glmnet',
-##              "tidymodels",
-##              "naivebayes",
-##              "kernlab",
-##              "ranger")
-
-
 #############################
 ##Use the WTO data to generate a bank of word tokens:
 #############################

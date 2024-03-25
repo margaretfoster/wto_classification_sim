@@ -98,7 +98,7 @@ gg
 ggsave(gg,
        file="pooledGammaClassificationComparison.pdf") 
 
-### Low vs high Gamme condition
+### Low vs high Gamma condition
 ## 05:
 sim_05_highG <- list()
 sim_05_lowG <- list()

@@ -135,7 +135,7 @@ compareSlices <- function(data, slicepercent, seed){
     sim_svm_aug$group <- "predict"
 
     ##%%%%%%%%%%%%%%%%%%
-    ## Logistic Reg with LASSO
+    ## Ridge Regression (Logistic with penalty)
     ##%%%%%%%%%%%%%%%%%%
     ## penalty: mixture =1 is LASSO
     ## mixture =0 is ridge
@@ -158,20 +158,18 @@ compareSlices <- function(data, slicepercent, seed){
     glm_pred <- predict(glm_fit, tagged_test)
     tagged_glm_aug <- augment(glm_fit, tagged_test)    
     tagged_glm_aug$Frame <- as.factor(tagged.glm.aug$Frame)
-    tagged_glm_aug$mod <- "GLM"
+    tagged_glm_aug$mod <- "Ridge"
     tagged_glm_aug$group <- "tagged"
 
     ## Scale to unsupervised portion
     ## GLM + LASSO
     glm_pred.all <- predict(glm_fit, unsupervised)
     sim_glm_aug <- augment(glm_fit, unsupervised)
-    sim_glm_aug$mod <- "GLM"
+    sim_glm_aug$mod <- "Ridge"
     sim_glm_aug$group <- "predict"
     ##%%%%%%%%%%%%%%%%%%
     ## K Nearest Neighbors
     ##%%%%%%%%%%%%%%%%%%
-    ## penalty: mixture =1 is LASSO
-    ## mixture =0 is ridge
 
     print("start KNN")
     
