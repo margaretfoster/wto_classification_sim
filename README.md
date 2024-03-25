@@ -23,3 +23,10 @@ We hand-classified a subset of the paragraphs, and in order to scale up analysis
 SimData uses the tokens found from the WTO negotitions data to create synthetic data with a known "frame." 
 It uses the WTO data to produce the synthetic data to address the first problem above: the specific and narrow issue area. This replicates the narrow subject matter by directly resusing the tokens found in the WTO data. It produces ground truth frames by assigning certain tokens to the frame and simulating documents with a known proportion of the frame tokens.
 This is a relatively simple proof-of-concept implementation where the "frame" words are a random 20\% of the tokens in the data. Each "frame" consistes of half of the sampled tokens. 
+
+[02compareCats.R]("02compareCats.R")
+
+CompareCats.R takes the simulated texts and two helper scripts [compareSlices.R]("compareSlices.R") and [makeROC.R]("makeROC.R"). It evaluates the Receiver Operating Characteristic (ROC) curve for a series of conditions: 
+(1) Comparison model performance for frames with the ground truth tagged at 5%, 10%, and 25% of the data
+(2) Comparison model performance for simulated texts with low or high frame "separation." 
+
