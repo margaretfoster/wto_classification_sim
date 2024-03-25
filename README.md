@@ -1,6 +1,8 @@
 # Introduction
 This repository contains code to benchmark the performance of machine learning classifiers based on real negotiation data from an international organization and benchmarked against a synthetic dataset.
 
+![First Pass of Performance](./modelComparisonSeparatedGammas.pdf?raw=true "Initial Classification Performance")
+
 The impetus for the code was a project trying to model gridlock on the World Trade Organization's Committee on Trade and Development. To a human reader, the negotiations have a clear delineation in factions promoting different views of the committee. Our qualitative interpretation was that one faction promoted policies that would produce transfers to less-developed countries, while the second faction was not interested in additional transfers.
 
 However, we could not capture this using text analysis methods. Several features of data make it very difficult to model:
@@ -34,20 +36,20 @@ Alpha and gamma are independent. Thus, for example, a 200-word long text where *
 
 ## Code and Simulation
 
-[SimDat.R]("SimDat.R")
+[SimDat.R](./SimDat.R)
 
 SimData uses the tokens found from the WTO negotiations data to create synthetic data with a known "frame." 
 
 It uses the WTO data to produce the synthetic data to address the first problem above: the specific and narrow issue area. This replicates the narrow subject matter by directly reusing the tokens from the WTO data. It produces ground truth frames by assigning particular tokens to the frame and simulating documents with a known proportion of the frame tokens.
 
-[02compareCats.R]("02compareCats.R")
+[02compareCats.R](./02compareCats.R)
 
 CompareCats.R takes the simulated texts and two helper scripts [compareSlices.R]("compareSlices.R") and [makeROC.R]("makeROC.R"). It evaluates the Receiver Operating Characteristic (ROC) curve for a series of conditions: 
 
 (1) Comparison model performance for frames with the ground truth tagged at 5%, 10%, and 25% of the data
 (2) Comparison model performance for simulated texts with low or high frame separation (*gamma*). 
 
-[compareSlices.R]("compareSlices.R")
+[compareSlices.R](./compareSlices.R)
 
 CompareSlices.R estimates the classifications. It uses a 70%-30% training/test split, with off-the-shelf implementation for each model.
 
