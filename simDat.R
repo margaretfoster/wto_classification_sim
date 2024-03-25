@@ -8,7 +8,7 @@ loadPkg=function(toLoad){
 
 library(groundhog)
 
-groundhog_day <- "2022-02-09"
+groundhog_day <- "2024-02-09"
 
 packs <- c('tidyr',
            'quanteda',
@@ -19,7 +19,7 @@ packs <- c('tidyr',
            'rsample',
            "discrim")
 
-groundhog_library(packs, 
+groundhog.library(packs, 
                   groundhog_day, tolerate.R.version='4.3.3')
 
 ##engines <-  c('glmnet',
@@ -32,10 +32,13 @@ groundhog_library(packs,
 #############################
 ##Use the WTO data to generate a bank of word tokens:
 #############################
-load("~/Dropbox/WTO-Data/rdatas/processedTextforSTM.Rdata")
+setwd("~/Dropbox/WTO_Classification_Sim/")
+
+load("./data/processedTextforSTM.Rdata")
 
 ls()
 
+## Remove stopwords and anything with fewer than 5 occurances
 tokens <- tibble(text =  out$meta$cleanedtext)  %>%
   unnest_tokens(word, text) %>%
     count(word,sort = TRUE)  %>%
@@ -44,23 +47,24 @@ tokens <- tibble(text =  out$meta$cleanedtext)  %>%
 
 class(tokens)
 dim(tokens) #1451576 words; 14809 unique; 14206 after removing stopwords, 9927 tokens used more than once;
-## 5,748 used at least 5 times. 
+## 5,748 used at least 5 times. 8853 documents
 
-## Make lists:
+## Synthetic frame data
 
 seed <- 2722
-set_seed(seed)
+set.seed(seed)
 ## Size of the keyword lists: 10% each
 
 L <- 0.2 ## Total percent to dedicate to frame keywords
 
-## Sample frames from master, then split into two
+## Sample frames from the list of token, then split into two
 frames <- sample_frac(tokens, L, replace=FALSE) ## 1150
 
+## Frame A is a random sample of half of the tokens
+## Frame "B" is the list of words that are in the frames
+## but not sampled into Frame A
 frame_A <- sample_frac(frames, .5, replace=FALSE) ## 575
 
-## frame "B" is the list of words that are in the frames
-## but not sampled into Frame A
 frame_B <- frames %>%
     filter(!word %in% frame_A$word) ##575
 
