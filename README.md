@@ -30,7 +30,7 @@ The simulated texts have hyperparameters *length*, *alpha*, and *gamma*:
 
 **Alpha** sets the percentage of the text dedicated to frame words. A text with an *alpha* value of .25 would be comprised of one-quarter of it's length as draws from the "frame" words and three-quarters of random draws from non-frame words.
 
-**Gamma** sets the text-level frame separation. Gamma is a weight on the Frame A words. It is sampled from the vector (.1, .25, .75, .9), representing two easy (.1, .9) and two more difficult classification (.25, .75) tasks. A *gamma* value closer to 0 means that the "frame" content is exclusively drawn from Frame B words. Conversely, a *gamma* value closer to 1 means that the frame content is exclusively Frame A words. Likewise, a *gamma* value of around 0.5 indicates about equal occurance of the two frames.
+**Gamma** sets the text-level frame separation. Gamma is a weight on the Frame A words. It is sampled from the vector (0.01, 0.4, 0.6, 0.8, 0.99), representing two easy (.1, .9) and two more difficult classification (.25, .75) tasks. A *gamma* value closer to 0 means that the "frame" content is exclusively drawn from Frame B words. Conversely, a *gamma* value closer to 1 means that the frame content is exclusively Frame A words. Likewise, a *gamma* value of around 0.5 indicates about equal occurance of the two frames.
 
 Alpha and gamma are independent. Thus, for example, a 200-word long text where *alpha* = .1 and *gamma* = .5 would produce a text with 180 neutral words, 10 Frame A words, and 10 Frame B words.
 
