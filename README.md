@@ -46,7 +46,8 @@ It uses the WTO data to produce the synthetic data to address the first problem 
 
 CompareCats.R takes the simulated texts and two helper scripts [compareSlices.R]("compareSlices.R") and [makeROC.R]("makeROC.R"). It evaluates the Receiver Operating Characteristic (ROC) curve for a series of conditions: 
 
-(1) Comparison model performance for frames with the ground truth tagged at 5%, 10%, and 25% of the data
+(1) Comparison model performance for frames with the ground truth tagged at 5%, 10%, and 25% of the data.
+
 (2) Comparison model performance for simulated texts with low or high frame separation (*gamma*). 
 
 [compareSlices.R](./compareSlices.R)
