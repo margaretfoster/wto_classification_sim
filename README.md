@@ -26,11 +26,11 @@ I start by creating "frame" words from a random 20\% of the tokens in the real n
 From there, I simulate the corpus:
 The simulated texts have hyperparameters *length*, *alpha*, and *gamma*:
 
-**Length** is a random uniform draw ranging from \[100, 300\] tokens, a length set to be roughly equivalent to the length of texts in the inspiration data. The length is easily customizable by setting the code.
+**Length** is a random uniform draw ranging from \[100, 1000\] tokens, a length set to be roughly equivalent to the length of texts in the inspiration data. The length is easily customizable by setting the code.
 
 **Alpha** sets the percentage of the text dedicated to frame words. A text with an *alpha* value of .25 would be comprised of one-quarter of it's length as draws from the "frame" words and three-quarters of random draws from non-frame words.
 
-**Gamma** sets the text-level frame separation. Gamma is a weight on the Frame A words. It is sampled from the vector (0.01, 0.2, 0.4, 0.6, 0.8, 0.99), representing two easy (0.01, 0.99), two medium (0.2, 0.8), and two difficult classification (0.4, 0.6) tasks. A *gamma* value closer to 0 means that the "frame" content is exclusively drawn from Frame B words. Conversely, a *gamma* value closer to 1 means that the frame content is exclusively Frame A words. Likewise, a *gamma* value of around 0.5 indicates about equal occurance of the two frames.
+**Gamma** sets the text-level frame separation. Gamma is a weight on the Frame A words. A *gamma* value closer to 0 means that the "frame" content is exclusively drawn from Frame B words. Conversely, a *gamma* value closer to 1 means that the frame content is exclusively Frame A words. Likewise, a *gamma* value of around 0.5 indicates about equal occurance of the two frames. The default settings sample from the vector (0.01, 0.2, 0.4, 0.6, 0.8, 0.99), representing two easy (0.01, 0.99), two medium (0.2, 0.8), and two difficult classification (0.4, 0.6) tasks.
 
 Alpha and gamma are independent. Thus, for example, a 200-word long text where *alpha* = .1 and *gamma* = .5 would produce a text with 180 neutral words, 10 Frame A words, and 10 Frame B words.
 
