@@ -1,7 +1,7 @@
 # Introduction
 This repository contains code to benchmark the performance of machine learning classifiers based on real negotiation data from an international organization and benchmarked against a synthetic dataset.
 
-![First Pass of Performance](./modelComparisonSeparatedGammas.pdf?raw=true "Initial Classification Performance")
+![First Pass of Performance](./output/modelComparisonSeparatedGammas.png?raw=true "Initial Classification Performance")
 
 The impetus for the code was a project trying to model gridlock on the World Trade Organization's Committee on Trade and Development. To a human reader, the negotiations have a clear delineation in factions promoting different views of the committee. Our qualitative interpretation was that one faction promoted policies that would produce transfers to less-developed countries, while the second faction was not interested in additional transfers.
 
