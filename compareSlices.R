@@ -62,21 +62,13 @@ compareSlices <- function(data, slicepercent, seed){
     nb.pred <- predict(nb_fit, tagged_test)
     tagged_nb_aug <- augment(nb_fit, tagged_test)
     tagged_nb_aug$Frame <- as.factor(tagged_nb_aug$Frame)
-<<<<<<< HEAD
     tagged_nb_aug$model <- "NB"
-=======
-    tagged_nb_aug$mod <- "NB"
->>>>>>> 2f0def503d62fdbf178a5ce52499964fd2a7c575
     tagged_nb_aug$group <- "tagged"
     
     ## Scale to "untagged" part:
     nb_pred_all <- predict(nb_fit, unsupervised)
     sim_nb_aug <- augment(nb_fit, unsupervised)
-<<<<<<< HEAD
     sim_nb_aug$model <- "NB"
-=======
-    sim_nb_aug$mod <- "NB"
->>>>>>> 2f0def503d62fdbf178a5ce52499964fd2a7c575
     sim_nb_aug$group <- "predict"
 
     ##%%%%%%%%%%%%%%%%%%
@@ -102,21 +94,13 @@ compareSlices <- function(data, slicepercent, seed){
     rf_pred <- predict(rf_fit, tagged_test)
     tagged_rf_aug <- augment(rf_fit, tagged_test)
     tagged_rf_aug$Frame <- as.factor(tagged_rf_aug$Frame)
-<<<<<<< HEAD
     tagged_rf_aug$model <- "RF"
-=======
-    tagged_rf_aug$mod <- "RF"
->>>>>>> 2f0def503d62fdbf178a5ce52499964fd2a7c575
     tagged_rf_aug$group <- "tagged"    
 
     ## Scale to untaged
     rf_pred.all <- predict(rf_fit, unsupervised)
     sim_rf_aug <- augment(rf_fit, unsupervised)
-<<<<<<< HEAD
     sim_rf_aug$model <- "RF"
-=======
-    sim_rf_aug$mod <- "RF"
->>>>>>> 2f0def503d62fdbf178a5ce52499964fd2a7c575
     sim_rf_aug$group <- "predict"
 
     ##%%%%%%%%%%%%%%%%%%
@@ -140,23 +124,14 @@ compareSlices <- function(data, slicepercent, seed){
     ## Predict on Tagged Subset:
     svm_pred <- predict(svm_fit, tagged_test)
     tagged_svm_aug <- augment(svm_fit, tagged_test)
-<<<<<<< HEAD
     tagged_svm_aug$Frame <- as.factor(tagged_svm_aug$Frame)
     tagged_svm_aug$model <- "SVM"
-=======
-    tagged_svm_aug$Frame <- as.factor(tagged.svm.aug$Frame)
-    tagged_svm_aug$mod <- "SVM"
->>>>>>> 2f0def503d62fdbf178a5ce52499964fd2a7c575
     tagged_svm_aug$group <- "tagged"
 
     ## Scale:
     svm_pred.all <- predict(svm_fit, unsupervised)
     sim_svm_aug <- augment(svm_fit, unsupervised)
-<<<<<<< HEAD
     sim_svm_aug$model <- "SVM"
-=======
-    sim_svm_aug$mod <- "SVM"
->>>>>>> 2f0def503d62fdbf178a5ce52499964fd2a7c575
     sim_svm_aug$group <- "predict"
 
     ##%%%%%%%%%%%%%%%%%%
@@ -182,25 +157,17 @@ compareSlices <- function(data, slicepercent, seed){
     ## Predict on Tagged Subset:
     glm_pred <- predict(glm_fit, tagged_test)
     tagged_glm_aug <- augment(glm_fit, tagged_test)    
-<<<<<<< HEAD
     tagged_glm_aug$Frame <- as.factor(tagged_glm_aug$Frame)
     tagged_glm_aug$model <- "Ridge"
-=======
-    tagged_glm_aug$Frame <- as.factor(tagged.glm.aug$Frame)
-    tagged_glm_aug$mod <- "Ridge"
->>>>>>> 2f0def503d62fdbf178a5ce52499964fd2a7c575
     tagged_glm_aug$group <- "tagged"
 
     ## Scale to unsupervised portion
     ## GLM + LASSO
     glm_pred.all <- predict(glm_fit, unsupervised)
     sim_glm_aug <- augment(glm_fit, unsupervised)
-<<<<<<< HEAD
     sim_glm_aug$model <- "Ridge"
-=======
-    sim_glm_aug$mod <- "Ridge"
->>>>>>> 2f0def503d62fdbf178a5ce52499964fd2a7c575
     sim_glm_aug$group <- "predict"
+
     ##%%%%%%%%%%%%%%%%%%
     ## K Nearest Neighbors
     ##%%%%%%%%%%%%%%%%%%
@@ -224,22 +191,14 @@ compareSlices <- function(data, slicepercent, seed){
     knn.pred <- predict(knn_fit, tagged_test)
     tagged_knn_aug <- augment(knn_fit, tagged_test)    
     tagged_knn_aug$Frame <- as.factor(tagged_knn_aug$Frame)
-<<<<<<< HEAD
     tagged_knn_aug$model <- "KNN"
-=======
-    tagged_knn_aug$mod <- "KNN"
->>>>>>> 2f0def503d62fdbf178a5ce52499964fd2a7c575
     tagged_knn_aug$group <- "tagged"
 
     ## Scale to unsupervised portion
     ## KNN
     knn_pred_all <- predict(knn_fit, unsupervised)
     sim_knn_aug <- augment(knn_fit, unsupervised)
-<<<<<<< HEAD
     sim_knn_aug$model <- "KNN"
-=======
-    sim_knn_aug$mod <- "KNN"
->>>>>>> 2f0def503d62fdbf178a5ce52499964fd2a7c575
     sim_knn_aug$group <- "predict"
     
     ##%%%%%%%%%%%%%%%%%%%%%%%%%

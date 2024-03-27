@@ -4,8 +4,6 @@
 
 rm(list=ls())
 
-setwd("~/Dropbox/WTO_Classification_Sim/")
-
 output <- "./output/"
 
 loadPkg=function(toLoad){
@@ -37,7 +35,8 @@ loadPkg(c(packs, engines))
 ## Load simulated data with ground truth
 #############################
 
-load("simulatedTextData.Rdata")
+datapath = "./data/"
+sims = read_csv(paste0(datapath, "sims.csv"))
 
 ## Training -test split
 ## Split at:
