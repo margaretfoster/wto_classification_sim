@@ -117,7 +117,7 @@ gg
 ggsave(gg,
        height= 8,
        width = 6,
-       file="pooledGammaClassificationComparison.png") 
+       file=paste0(output, "pooledGammaClassificationComparison.png"))
 
 ### Low vs high Gamma condition
 ## 05:
@@ -209,4 +209,4 @@ gg2
 ggsave(gg2, 
        height= 6, 
        width = 8,
-       file="modelComparisonSeparatedGammas.png")
+       file=paste0(output, "modelComparisonSeparatedGammas.png"))
