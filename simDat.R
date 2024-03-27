@@ -72,9 +72,15 @@ length(intersect(frames$word, content$word)) ## 0
 ## Generate "texts" that are bags of words:
 ##%%%%%%%%%%%%%%%%
 
+<<<<<<< HEAD
 num_texts <- 10^5
 length_low <- 100
 length_high <- 1000
+=======
+num_texts <- 10^4
+length_low <- 100
+length_high <- 300
+>>>>>>> 2f0def503d62fdbf178a5ce52499964fd2a7c575
 
 ## make vector of alphas
 ## and a vector of gammas:
@@ -86,7 +92,11 @@ alphas <- round(runif(n=num_texts,
 ## start simple: 0, .25, .75,1 )
 ## AKA: easy, hard, hard, easy
 gammas <- round(sample(size=num_texts,
+<<<<<<< HEAD
                        x=c(.01, 0.2, 0.4, 0.6, 0.8, 0.99),
+=======
+                       x=c(0, .25, .75, 1),
+>>>>>>> 2f0def503d62fdbf178a5ce52499964fd2a7c575
                        replace=TRUE) ,2)
 
 tmp <- NULL
@@ -160,7 +170,10 @@ table(sims$frameA)
 
 sims$id <- rownames(sims)
 
+<<<<<<< HEAD
 write.csv(sims, file="sims.csv")
 
+=======
+>>>>>>> 2f0def503d62fdbf178a5ce52499964fd2a7c575
 save(sims,
      file="simulatedTextData.Rdata")

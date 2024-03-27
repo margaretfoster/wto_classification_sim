@@ -64,11 +64,12 @@ sim_05 <- compareSlices(data= sims,
 roc_05 <- makeROC(modelList=sim_05,
                      thresh=5)
 
-first_roc <- sim_05[[1]] %>% ## GLM + Ridge
-  mutate(across(c(Frame), factor)) %>%
-  roc_curve(truth = Frame,
-            .pred_A,
-            event_level= "first")
+#first_roc <- sim_05[[1]] %>% ## GLM + Ridge
+#  mutate(across(c(Frame), factor)) %>%
+#  roc_curve(truth = Frame,
+#            .pred_A,
+#            event_level= "first")
+
 
 ## 10% "tagged"
 sim_1 <- compareSlices(data= sims,
@@ -110,7 +111,8 @@ gg <- ggplot(ggdat1,
     facet_wrap(level ~ group,
                ncol=2) + 
   labs(color = "Model")+
-  theme(legend.position="bottom")
+  theme(legend.position="bottom")+
+    facet_wrap(group~ level)
 
 gg
 
